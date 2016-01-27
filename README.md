@@ -491,13 +491,11 @@ xpf /path/to/dir1 /path/to/foo1.txt
 
 ### 用法
 
-<pre>
-	show-cpu-and-memory.sh
-</pre>
+直接执行即可
 
 ### 贡献者
 
-[superhj1987](https://github.com/superhj1987
+[superhj1987](https://github.com/superhj1987)
 
 :beer: [monitor-host.sh](monitor-host.sh)
 ----------------------
