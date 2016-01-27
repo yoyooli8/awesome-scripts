@@ -14,10 +14,11 @@ readonly total_cpu="`top -n 1 | grep 'Cpu'`"
 
 echo '**********'$cur_date'**********'
 echo
-echo "total memory: $total_mem\n total cpu: $total_cpu"
+echo "total memory: $total_mem"
+echo "total cpu: $total_cpu"
 echo
 
-for pid in `ps -ef | awk 'NR > 0 {print $2}'` ; do
+for pid in `ps -ef | awk 'NR > 1 {print $2}'` ; do
 	# not pid
  	if [[ $pid == *[!0-9]* ]]; then
  		continue
