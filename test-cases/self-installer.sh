@@ -8,4 +8,5 @@ if which svn &> /dev/null; then
 	else
 		cd /tmp/useful-scripts-$USER
 		svn up
+	fi
 fi
