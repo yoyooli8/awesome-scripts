@@ -9,7 +9,7 @@
 ----------------------
 
 ```bash
-source <(curl -fsSL https://raw.githubusercontent.com/oldratlee/useful-scripts/master/test-cases/self-installer.sh)
+source <(curl -fsSL https://raw.githubusercontent.com/superhj1987/useful-scripts/master/test-cases/self-installer.sh)
 ```
 
 更多下载&使用方式，参见[下载使用](#key-下载使用)一节。
@@ -484,6 +484,67 @@ xpf /path/to/dir1 /path/to/foo1.txt
 
 [Linhua Tan](https://github.com/toolchainX)修复Linux的选定Bug。
 
+:beer: [show-cpu-and-memory.sh](show-cpu-and-memory.sh)
+----------------------
+
+显示当前cpu和内存使用状况，包括全局和各个进程的。
+
+### 用法
+
+<pre>
+	show-cpu-and-memory.sh
+</pre>
+
+### 贡献者
+
+[superhj1987](https://github.com/superhj1987
+
+:beer: [monitor-host.sh](monitor-host.sh)
+----------------------
+
+监控当前的内存、cpu、io以及网络状况，写入相应的log文件
+
+### 用法
+
+建议使用crontab，定时调用此脚本
+
+### 贡献者
+
+[superhj1987](https://github.com/superhj1987)
+
+:beer: [tpl/run-cmd-tpl.sh](tpl/run-cmd-tpl.sh)
+----------------------
+
+linux下后台执行守护程序的模板shell脚本
+
+### 用法
+
+修改文件中此部分的值为需要执行的程序即可
+
+<pre>
+MONITOR_APPNAME="SwitchMonitor"
+COMMAND="$JAVA_COMMAND $OPTS $MONITOR_JAR"
+STOP_COMMAND="kill -9"
+NAME="OM Switch Monitor"
+</pre>
+
+### 贡献者
+
+[superhj1987](https://github.com/superhj1987)
+
+:beer: [check-vm.py](check-vm.py)
+----------------------
+
+检查当前linux是否是在虚拟机上，包括openvz/xen、pv/uml、VmWare。
+
+### 用法
+
+直接执行即可
+
+### 贡献者
+
+[superhj1987](https://github.com/superhj1987)
+
 :key: 下载使用
 ----------------------
 
@@ -523,16 +584,6 @@ svn up
 
 PS：     
 我的做法是把`useful-scripts` checkout到`$HOME/bin/useful-scripts`目录下，再把`$HOME/bin/useful-scripts`配置到`PATH`变量上，这样方便我本地使用所有的脚本。
-
-#### 打包下载
-
-下载文件[release.zip](https://github.com/oldratlee/useful-scripts/archive/release.zip)：
-
-```bash
-wget --no-check-certificate https://github.com/oldratlee/useful-scripts/archive/release.zip
-
-unzip release.zip
-```
 
 ### 下载和运行单个文件
 
