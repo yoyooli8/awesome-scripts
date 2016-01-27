@@ -55,11 +55,11 @@ source <(curl -fsSL https://raw.githubusercontent.com/superhj1987/useful-scripts
     提供命令行选项解析函数`parseOpts`，支持选项的值有多个值（即数组）。
 1. [xpl and xpf](docs/shell.md#beer-xpl-and-xpf)    
     在文件浏览器中 打开/选中 指定的文件或文件夹。
-1. [show-cpu-and-memory.sh](show-cpu-and-memory.sh)
+1. [show-cpu-and-memory.sh](show-cpu-and-memory.sh)    
     显示当前cpu和内存使用状况，包括全局和各个进程的
-1. [monitor-host.sh](monitor-host.sh)
+1. [monitor-host.sh](monitor-host.sh)    
     监控当前的内存、cpu、io以及网络状况，写入相应的log文件,建议使用crontab，定时调用此脚本
-1. [tpl/run-cmd-tpl.sh](tpl/run-cmd-tpl.sh)
+1. [tpl/run-cmd-tpl.sh](tpl/run-cmd-tpl.sh)    
     linux下后台执行守护程序的模板shell脚本,修改文件中此部分几个选项的值为需要执行的程序即可
 
     <pre>
@@ -69,5 +69,5 @@ source <(curl -fsSL https://raw.githubusercontent.com/superhj1987/useful-scripts
     NAME="xxx"
     </pre>
 
-1. [check-vm.py](check-vm.py)
+1. [check-vm.py](check-vm.py)    
     检查当前linux是否是在虚拟机上，包括openvz/xen、pv/uml、VmWare。
