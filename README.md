@@ -60,10 +60,10 @@ curl -fsSL https://raw.githubusercontent.com/superhj1987/useful-scripts/master/t
 1. [xpl and xpf](docs/shell.md#beer-xpl-and-xpf)    
     在文件浏览器中 打开/选中 指定的文件或文件夹。
 1. [show-cpu-and-memory.sh](docs/shell.md#beer-show-cpu-and-memorysh)    
-    显示当前cpu和内存使用状况，包括全局和各个进程的
+    显示当前cpu和内存使用状况，包括全局和各个进程的。
 1. [monitor-host.sh](docs/shell.md#beer-monitor-hostsh)    
-    监控当前的内存、cpu、io以及网络状况，写入相应的log文件,建议使用crontab，定时调用此脚本
+    监控当前的内存、cpu、io以及网络状况，写入相应的log文件,建议使用crontab，定时调用此脚本。
 1. [tpl/run-cmd-tpl.sh](docs/shell.md#beer-tplrun-cmd-tplsh)    
-    linux下后台执行守护程序的模板shell脚本,修改文件中几个选项的值为需要执行的程序即可使用
+    linux下后台执行守护程序的模板shell脚本,修改文件中几个选项的值为需要执行的程序即可使用。
 1. [check-vm.py](docs/shell.md#beer-check-vmpy)    
     检查当前linux是否是在虚拟机上，包括openvz/xen、pv/uml、VmWare。

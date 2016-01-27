@@ -311,7 +311,7 @@ xpf /path/to/dir1 /path/to/foo1.txt
 
 [Linhua Tan](https://github.com/toolchainX)修复Linux的选定Bug。
 
-:beer: [show-cpu-and-memory.sh](show-cpu-and-memory.sh)
+:beer: [show-cpu-and-memory.sh](../show-cpu-and-memory.sh)
 ----------------------
 
 显示当前cpu和内存使用状况，包括全局和各个进程的。
@@ -320,27 +320,19 @@ xpf /path/to/dir1 /path/to/foo1.txt
 
 直接执行即可
 
-### 贡献者
-
-[superhj1987](https://github.com/superhj1987)
-
-:beer: [monitor-host.sh](monitor-host.sh)
+:beer: [monitor-host.sh](../monitor-host.sh)
 ----------------------
 
-监控当前的内存、cpu、io以及网络状况，写入相应的log文件
+监控当前的内存、cpu、io以及网络状况，写入相应的log文件。
 
 ### 用法
 
 建议使用crontab，定时调用此脚本
 
-### 贡献者
-
-[superhj1987](https://github.com/superhj1987)
-
-:beer: [tpl/run-cmd-tpl.sh](tpl/run-cmd-tpl.sh)
+:beer: [tpl/run-cmd-tpl.sh](../tpl/run-cmd-tpl.sh)
 ----------------------
 
-linux下后台执行守护程序的模板shell脚本
+linux下后台执行守护程序的模板shell脚本。
 
 ### 用法
 
@@ -353,11 +345,7 @@ STOP_COMMAND="kill -9"
 NAME="OM Switch Monitor"
 </pre>
 
-### 贡献者
-
-[superhj1987](https://github.com/superhj1987)
-
-:beer: [check-vm.py](check-vm.py)
+:beer: [check-vm.py](../check-vm.py)
 ----------------------
 
 检查当前linux是否是在虚拟机上，包括openvz/xen、pv/uml、VmWare。
@@ -365,7 +353,3 @@ NAME="OM Switch Monitor"
 ### 用法
 
 直接执行即可
-
-### 贡献者
-
-[superhj1987](https://github.com/superhj1987)
