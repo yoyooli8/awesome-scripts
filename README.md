@@ -1,9 +1,11 @@
 :snail: useful-scripts
 ====================================
 
+本项目fork自<https://github.com/oldratlee/useful-scripts/>
+
 把平时有用的手动操作做成脚本，这样可以便捷的使用。 :sparkles:
 
-有自己用的好的脚本 或是 平时常用但没有写成脚本的功能，欢迎提供（[提交Issue](https://github.com/oldratlee/useful-scripts/issues))和分享（[Fork后提交代码](https://github.com/oldratlee/useful-scripts/fork)）！ :sparkling_heart:
+有自己用的好的脚本 或是 平时常用但没有写成脚本的功能，欢迎提供（[提交Issue](https://github.com/superhj1987/useful-scripts/issues))和分享（[Fork后提交代码](https://github.com/superhj1987/useful-scripts/fork)）！ :sparkling_heart:
 
 :beginner: 快速下载&使用
 ----------------------

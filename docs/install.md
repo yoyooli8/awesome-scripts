@@ -44,13 +44,13 @@ svn up
 ### `curl`文件直接用`bash`运行
 
 ```bash
-curl -sLk 'https://raw.github.com/oldratlee/useful-scripts/release/show-busy-java-threads.sh' | bash
+curl -sLk 'https://raw.github.com/superhj1987/useful-scripts/release/show-busy-java-threads.sh' | bash
 ```
 
 ### 下载单个文件
 
 ```bash
-wget --no-check-certificate https://raw.github.com/oldratlee/useful-scripts/release/show-busy-java-threads.sh
+wget --no-check-certificate https://raw.github.com/superhj1987/useful-scripts/release/show-busy-java-threads.sh
 chmod +x show-busy-java-threads.sh
 
 ./show-busy-java-threads.sh
