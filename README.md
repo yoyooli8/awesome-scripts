@@ -9,7 +9,7 @@
 ----------------------
 
 ```bash
-source <(curl -fsSL https://raw.githubusercontent.com/superhj1987/useful-scripts/master/test-cases/self-installer.sh)
+curl -fsSL https://raw.githubusercontent.com/superhj1987/useful-scripts/master/test-cases/self-installer.sh | sh
 ```
 
 更多下载&使用方式，参见[下载使用](docs/install.md)。
