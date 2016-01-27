@@ -45,6 +45,8 @@ curl -fsSL https://raw.githubusercontent.com/superhj1987/useful-scripts/master/t
     彩色`cat`出文件行，方便人眼区分不同的行。
 1. [a2l](docs/shell.md#beer-a2l)  
     按行彩色输出参数，方便人眼查看。
+1. [ap](ap)  
+    转换path为绝对路径
 1. [echo-args.sh](docs/shell.md#beer-echo-argssh)    
     输出脚本收到的参数，在控制台运行时，把参数值括起的括号显示成 **红色**，方便人眼查看。用于调试脚本参数输入。
 1. [console-text-color-themes.sh](docs/shell.md#beer-console-text-color-themessh)  
@@ -55,19 +57,11 @@ curl -fsSL https://raw.githubusercontent.com/superhj1987/useful-scripts/master/t
     提供命令行选项解析函数`parseOpts`，支持选项的值有多个值（即数组）。
 1. [xpl and xpf](docs/shell.md#beer-xpl-and-xpf)    
     在文件浏览器中 打开/选中 指定的文件或文件夹。
-1. [show-cpu-and-memory.sh](show-cpu-and-memory.sh)    
+1. [show-cpu-and-memory.sh](docs/shell.md#beer-show-cpu-and-memorysh)    
     显示当前cpu和内存使用状况，包括全局和各个进程的
-1. [monitor-host.sh](monitor-host.sh)    
+1. [monitor-host.sh](docs/shell.md#beer-monitor-hostsh)    
     监控当前的内存、cpu、io以及网络状况，写入相应的log文件,建议使用crontab，定时调用此脚本
-1. [tpl/run-cmd-tpl.sh](tpl/run-cmd-tpl.sh)    
-    linux下后台执行守护程序的模板shell脚本,修改文件中此部分几个选项的值为需要执行的程序即可
-
-    <pre>
-    MONITOR_APPNAME="xxx"
-    COMMAND="xxx"
-    STOP_COMMAND="xxx"
-    NAME="xxx"
-    </pre>
-
-1. [check-vm.py](check-vm.py)    
+1. [tpl/run-cmd-tpl.sh](docs/shell.md#beer-tplrun-cmd-tplsh)    
+    linux下后台执行守护程序的模板shell脚本,修改文件中几个选项的值为需要执行的程序即可使用
+1. [check-vm.py](docs/shell.md#beer-check-vmpy)    
     检查当前linux是否是在虚拟机上，包括openvz/xen、pv/uml、VmWare。
