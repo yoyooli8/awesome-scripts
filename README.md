@@ -5,7 +5,7 @@
 
 - 自安装脚本的修改：[test-cases/self-installer.sh](test-cases/self-installer.sh)
 - Linux守护进程模板: [tpl/run-cmd-tpl.sh](tpl/run-cmd-tpl.sh)
-- 检查当前系统是否运行在虚拟机上: [check-vm.py](tpl/run-cmd-tpl.sh)
+- 检查当前系统是否运行在虚拟机上: [check-vm.py](check-vm.py)
 
 此外，原项目中以下为本人所贡献代码：
 
