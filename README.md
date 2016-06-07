@@ -78,3 +78,6 @@ curl -fsSL https://raw.githubusercontent.com/superhj1987/useful-scripts/master/t
     linux下后台执行守护程序的模板shell脚本,修改文件中几个选项的值为需要执行的程序即可使用。
 1. [check-vm.py](docs/shell.md#beer-check-vmpy)    
     检查当前linux是否是在虚拟机上，包括openvz/xen、pv/uml、VmWare。
+1. [get-pip.py](docs/shell.md#beer-get-pippy)    
+    安装pip, 将pip程序封装在了文件中，可以避免网络安装pip过慢。
+   

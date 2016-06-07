@@ -353,3 +353,12 @@ NAME="OM Switch Monitor"
 ### 用法
 
 直接执行即可
+
+:beer: [get-pip.py](../get-pip.py)
+----------------------
+
+安装pip
+
+### 用法
+
+直接执行即可
