@@ -1,7 +1,44 @@
 :snail: `Shell`相关脚本
 ====================================
 
-包含`Shell`使用或命令加强的脚本。
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [`Shell`使用加强](#shell%E4%BD%BF%E7%94%A8%E5%8A%A0%E5%BC%BA)
+    - [:beer: c](#beer-c)
+        - [示例](#%E7%A4%BA%E4%BE%8B)
+        - [参考资料](#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99)
+    - [:beer: colines](#beer-colines)
+        - [示例](#%E7%A4%BA%E4%BE%8B-1)
+    - [:beer: a2l](#beer-a2l)
+        - [示例](#%E7%A4%BA%E4%BE%8B-2)
+    - [:beer: ap and rp](#beer-ap-and-rp)
+        - [示例](#%E7%A4%BA%E4%BE%8B-3)
+    - [:beer: xpl and xpf](#beer-xpl-and-xpf)
+        - [用法](#%E7%94%A8%E6%B3%95)
+        - [示例](#%E7%A4%BA%E4%BE%8B-4)
+        - [贡献者](#%E8%B4%A1%E7%8C%AE%E8%80%85)
+    - [:beer: tcp-connection-state-counter.sh](#beer-tcp-connection-state-countersh)
+        - [用法](#%E7%94%A8%E6%B3%95-1)
+        - [示例](#%E7%A4%BA%E4%BE%8B-5)
+- [`Shell`开发/测试加强](#shell%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95%E5%8A%A0%E5%BC%BA)
+    - [:beer: echo-args.sh](#beer-echo-argssh)
+        - [示例](#%E7%A4%BA%E4%BE%8B-6)
+        - [使用方式](#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F)
+    - [:beer: console-text-color-themes.sh](#beer-console-text-color-themessh)
+        - [贡献者](#%E8%B4%A1%E7%8C%AE%E8%80%85-1)
+        - [参考资料](#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99-1)
+    - [:beer: parseOpts.sh](#beer-parseoptssh)
+        - [用法](#%E7%94%A8%E6%B3%95-2)
+        - [示例](#%E7%A4%BA%E4%BE%8B-7)
+        - [兼容性](#%E5%85%BC%E5%AE%B9%E6%80%A7)
+        - [贡献者](#%E8%B4%A1%E7%8C%AE%E8%80%85-2)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+`Shell`使用加强
+====================================
 
 :beer: [c](../c)
 ----------------------
@@ -14,19 +51,26 @@
 
 ### 示例
 
+有3种使用风格，根据需要或是你的偏好选取。
+
 ```bash
-# 前缀方式，后面跟上要运行的命令
+# 1. 前缀方式，后面跟上要运行的命令
 $ c pwd
 /Users/jerry
 $ c echo -e 'a\nb'
 a
 b
-# 从标准输入读取内容
-$ c < id_rsa.pub
-ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAz+ETZEgoLeIiC0rjWewdDs0sbo8c...== a@b.com
-# 后缀方式，管道
+# 这种使用方式，后面跟的命令不能是别名（alias），对于别名可以用下面的使用方式。
+
+# 2. 后缀方式，管道
 $ echo -e 'a\nb' | nl | c
 1   a
+# gb是oh-my-zsh的别名，列出git的分支，需要后缀的方式的使用。
+$ gb | c
+
+# 3. 从标准输入读取内容。拷贝文件内容时这种方式最直接。
+$ c < id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAz+ETZEgoLeIiC0rjWewdDs0sbo8c...== a@b.com
 2   b
 ```
 
@@ -94,6 +138,104 @@ test-cases/self-installer.sh
 
 注：上面显示中，没有彩色，在控制台上运行可以看出彩色效果。
 
+:beer: [ap](../ap) and [rp](../rp)
+----------------------
+
+批量转换文件路径为绝对路径/相对路径，会自动跟踪链接并规范化路径。
+
+命令名`ap`意思是`Absolute Path`，`rp`是`Relative Path`。
+
+### 示例
+
+```bash
+# ap缺省打印当前路径的绝对路径
+$ ap
+/home/admin/useful-scripts/test
+$ ap ..
+/home/admin/useful-scripts
+# 支持多个参数
+$ ap .. ../.. /etc /etc/../etc
+/home/admin/useful-scripts
+/home/admin
+/etc
+/etc
+
+# rp当一个参数时，打印相对于当前路径的相对路径
+$ rp /home
+../..
+# 多于一个参数时，打印相对于最后一个参数的相对路径
+$ rp /home /etc/../etc /home/admin
+..
+../../etc
+```
+
+:beer: [xpl](../xpl) and [xpf](../xpf)
+----------------------
+
+在命令行中快速完成 在文件浏览器中 打开/选中 指定的文件或文件夹的操作。
+
+* `xpl`：在文件浏览器中打开指定的文件或文件夹。  
+\# `xpl`是`explorer`的缩写。
+* `xpf`: 在文件浏览器中打开指定的文件或文件夹，并选中。   
+\# `xpf`是`explorer and select file`的缩写。
+
+### 用法
+
+```bash
+xpl
+# 缺省打开当前目录
+xpl <文件或是目录>...
+# 打开多个文件或目录
+
+xpf
+# 缺省打开当前目录
+xpf <文件或是目录>...
+# 打开多个文件或目录
+```
+
+### 示例
+
+```bash
+xpl /path/to/dir
+xpl /path/to/foo.txt
+xpl /path/to/dir1 /path/to/foo1.txt
+xpf /path/to/foo1.txt
+xpf /path/to/dir1 /path/to/foo1.txt
+```
+
+### 贡献者
+
+[Linhua Tan](https://github.com/toolchainX)修复Linux的选定Bug。
+
+:beer: [tcp-connection-state-counter.sh](../tcp-connection-state-counter.sh)
+----------------------
+
+统计各个`TCP`连接状态的个数。
+
+像`Nginx`、`Apache`的机器上需要查看，`TCP`连接的个数，以判定
+
+- 连接数、负荷
+- 是否有攻击，查看`SYN_RECV`数（`SYN`攻击）
+- `TIME_WAIT`数，太多会导致`TCP: time wait bucket table overflow`。
+
+### 用法
+
+```bash
+tcp-connection-state-counter.sh
+```
+
+### 示例
+
+```bash
+$ tcp-connection-state-counter.sh
+ESTABLISHED  290
+TIME_WAIT    212
+SYN_SENT     17
+```
+
+`Shell`开发/测试加强
+====================================
+
 :beer: [echo-args.sh](../echo-args.sh)
 ----------------------
 
@@ -150,36 +292,10 @@ colorEchoWithoutNewLine "4;33;40" "Hello world!" "Hello Hell!"
 
 - [utensil](https://github.com/utensil)的[在Bash下输出彩色的文本](http://utensil.github.io/tech/2007/09/10/colorful-bash.html)，这是篇很有信息量很钻研的文章！
 
-:beer: [tcp-connection-state-counter.sh](../tcp-connection-state-counter.sh)
-----------------------
-
-统计各个`TCP`连接状态的个数。
-
-像`Nginx`、`Apache`的机器上需要查看，`TCP`连接的个数，以判定
-
-- 连接数、负荷
-- 是否有攻击，查看`SYN_RECV`数（`SYN`攻击）
-- `TIME_WAIT`数，太多会导致`TCP: time wait bucket table overflow`。
-
-### 用法
-
-```bash
-tcp-connection-state-counter.sh
-```
-
-### 示例
-
-```bash
-$ tcp-connection-state-counter.sh
-ESTABLISHED  290
-TIME_WAIT    212
-SYN_SENT     17
-```
-
 :beer: [parseOpts.sh](../parseOpts.sh)
 ----------------------
 
-提供命令行选项解析函数`parseOpts`，支持选项的值有多个值（即数组）。  
+提供命令行选项解析函数`parseOpts`，以加强支持选项的值有多个值（即数组）。  
 \# 自己写一个命令行选项解析函数，是因为[`bash`](http://linux.die.net/man/1/bash)的`buildin`命令[`getopts`](http://linux.die.net/man/1/getopts)和加强版本命令[`getopt`](http://linux.die.net/man/1/getopt)都不支持数组的值。
 
 指定选项的多个值（即数组）的风格模仿[`find`](http://linux.die.net/man/1/find)命令的`-exec`选项：
@@ -275,6 +391,7 @@ parseOpts "a,a-long|b,b-long:|c,c-long+" -a -b bv -- --c-long c.sh -p pv -q qv a
 
 [Khotyn Huang](https://github.com/khotyn)指出`bash` `3.0`下使用有问题，并提供`bash` `3.0`的测试机器。
 
+<<<<<<< HEAD
 :beer: [xpl](../xpl) and [xpf](../xpf)
 ----------------------
 
@@ -362,3 +479,5 @@ NAME="OM Switch Monitor"
 ### 用法
 
 直接执行即可
+=======
+>>>>>>> source/master
