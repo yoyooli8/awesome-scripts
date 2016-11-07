@@ -44,8 +44,6 @@ curl -fsSL https://raw.githubusercontent.com/superhj1987/useful-scripts/master/t
 
 ### :shell: [`Shell`相关脚本](docs/shell.md)
 
-`Shell`使用加强：
-
 1. [c](docs/shell.md#beer-c)  
     原样命令行输出，并拷贝标准输出到系统剪贴板，省去`CTRL+C`，`CTRL+V`操作。
 1. [colines](docs/shell.md#beer-colines)  
