@@ -8,6 +8,7 @@
 - 自安装脚本的修改：[test-cases/self-installer.sh](test-cases/self-installer.sh)
 - Linux守护进程模板: [tpl/run-cmd-tpl.sh](tpl/run-cmd-tpl.sh)
 - 检查当前系统是否运行在虚拟机上: [check-vm.py](check-vm.py)
+- 改变当前git项目的origin remote的url: [change_git_origin_remote.sh](change_git_origin_remote.sh)
 
 此外，原项目中以下为本人所贡献代码：
 
@@ -82,3 +83,5 @@ curl -fsSL https://raw.githubusercontent.com/superhj1987/useful-scripts/master/t
     把指定的远程分支从刚新建分支以来的修改合并到本地`svn`目录或是另一个远程分支。
 1. [cp-svn-url.sh](docs/vcs.md#beer-cp-svn-urlsh)  
     拷贝当前`svn`目录对应的远程分支到系统的粘贴板，省去`CTRL+C`操作。
+1. [change_git_origin_remote.sh](change_git_origin_remote.sh)  
+    改变当前git项目的origin remote的url。
