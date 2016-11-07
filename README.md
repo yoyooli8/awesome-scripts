@@ -3,7 +3,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/superhj1987/useful-scripts.svg?style=social&label=Star&)](https://github.com/superhj1987/useful-scripts/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/superhj1987/useful-scripts.svg?style=social&label=Fork&)](https://github.com/superhj1987/useful-scripts/fork)
 
-本项目fork自<https://github.com/oldratlee/useful-scripts/>，现已经用于公司运维环境中，基于原项目所做更新如下
+本项目fork自<https://github.com/oldratlee/useful-scripts/>，现已经用于公司运维环境中，基于原项目所做更新如下:
 
 - 自安装脚本的修改：[test-cases/self-installer.sh](test-cases/self-installer.sh)
 - Linux守护进程模板: [tpl/run-cmd-tpl.sh](tpl/run-cmd-tpl.sh)
@@ -52,8 +52,8 @@ curl -fsSL https://raw.githubusercontent.com/superhj1987/useful-scripts/master/t
     彩色`cat`出文件行，方便人眼区分不同的行。
 1. [a2l](docs/shell.md#beer-a2l)  
     按行彩色输出参数，方便人眼查看。
-1. [ap](ap)  
-    转换path为绝对路径
+1. [ap & rp](docs/shell.md#beer-ap-and-rp)  
+    批量转换文件路径为绝对路径/相对路径，会自动跟踪链接并规范化路径。
 1. [echo-args.sh](docs/shell.md#beer-echo-argssh)    
     输出脚本收到的参数，在控制台运行时，把参数值括起的括号显示成 **红色**，方便人眼查看。用于调试脚本参数输入。
 1. [console-text-color-themes.sh](docs/shell.md#beer-console-text-color-themessh)  
