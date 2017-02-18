@@ -18,24 +18,24 @@ awesome-scripts [![License](https://img.shields.io/badge/license-Apache%202-4EB1
 
 ------
 
-## Requirement
+## 运行/安装环境
 
 - Linux
 - git1.7+
 
-## Install
+## 安装
 
-Three methods:
+三种方法
 
 - `curl -s "https://raw.githubusercontent.com/superhj1987/awesome-scripts/master/self-installer.sh" | bash -s`
 - Download the source and `make install`
 - Download the source and set `bin` to the System Path to use the common usage shells
 
-## Uninstall
+## 卸载
 
 opscripts uninstall
 
-## Usage
+## 使用
 
 * `opscripts`
 > show system command
@@ -49,8 +49,7 @@ opscripts uninstall
 * `opscripts uninstall`
 > uninstall opscripts 
 
-:books: 命令列表及文档
-----------------------
+## 命令列表及文档
 
 ### :coffee: [`Java`相关脚本](docs/java.md)
 
