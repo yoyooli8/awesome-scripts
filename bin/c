@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Function
-# Run command and put output to system clipper.
+## Run command and put output to system clipper.
 #
 # @Usage
 #   $ ./c echo "hello world!"

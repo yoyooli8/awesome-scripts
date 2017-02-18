@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Function
-# echo each arguments on one line colorfully.
+## echo each arguments on one line colorfully.
 #
 # @Usage
 #   $ ./a2l arg1 arg2

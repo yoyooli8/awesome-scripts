@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Function
-# convert to Absolute Path.
+## convert to Absolute Path.
 #
 # @Usage
 #   # print Absolute Path of current directory.

@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# check if a linux system running on a virtual machine (openvz/xen pv/uml VmWare)
+## check if a linux system running on a virtual machine (openvz/xen pv/uml VmWare)
 
 import sys, os
 

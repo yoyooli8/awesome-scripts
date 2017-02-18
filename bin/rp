@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Function
-# convert to Relative Path.
+## convert to Relative Path.
 #
 # @Usage
 #   # if 1 argument, print relative path to current dir.

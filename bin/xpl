@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Function
-# Open file in file explorer.
+## Open file in file explorer.
 #
 # @Usage
 #   $ ./xpf file

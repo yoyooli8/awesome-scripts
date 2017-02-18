@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Function
-# show all console text color themes.
+## show all console text color themes.
 
 colorEcho() {
     local combination="$1"

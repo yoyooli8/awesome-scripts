@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Function
-#   parse options lib, support multiple values for one option.
+##  parse options lib, support multiple values for one option.
 #
 # @Usage
 #   source this script to your script file, then use func parseOpts.

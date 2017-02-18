@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Function
-# copy the svn remote url of current svn directory.
+## copy the svn remote url of current svn directory.
 #
 # @Usage
 #   $ ./cp-svn-url.sh

@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Function
-# Show total and every process's memory and cpu usage
+## Show total and every process's memory and cpu usage
 #
 # @Usage
 #   $ ./show-cpu-and-memory.sh

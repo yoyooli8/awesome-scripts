@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Function
-# switch svn work directory to trunk.
+## switch svn work directory to trunk.
 #
 # @Usage
 #   $ ./swtrunk.sh [<svn work dir>...]

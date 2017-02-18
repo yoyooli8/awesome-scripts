@@ -1,4 +1,5 @@
 #!/bin/bash
+## echo args
 
 redEcho() {
     if [ -c /dev/stdout ] ; then

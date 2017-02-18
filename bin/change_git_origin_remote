@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Function
-# change origin remote of the  git repository
+## change origin remote of the  git repository
 #
 # @Usage
 #   $ ./change_git_origin_remote [new_origin_remote_url]

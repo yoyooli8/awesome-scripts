@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Function
-# show count of tcp connection stat.
+## show count of tcp connection stat.
 #
 # @Usage
 #   $ ./tcp-connection-state-counter.sh
