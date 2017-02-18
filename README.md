@@ -1,7 +1,7 @@
-awesome-scripts [![License](https://imgields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
+awesome-scripts [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 ----
-[![GitHub stars](https://imgields.io/github/stars/superhj1987/useful-scripts.svg?style=social&label=Star&)](https://github.com/superhj1987/useful-scripts/stargazers)
-[![GitHub forks](https://imgields.io/github/forks/superhj1987/useful-scripts.svg?style=social&label=Fork&)](https://github.com/superhj1987/useful-scripts/fork)
+[![GitHub stars](https://img.shields.io/github/stars/superhj1987/useful-scripts.svg?style=social&label=Star&)](https://github.com/superhj1987/useful-scripts/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/superhj1987/useful-scripts.svg?style=social&label=Fork&)](https://github.com/superhj1987/useful-scripts/fork)
 
 本项目fork自<https://github.com/oldratlee/useful-scripts/>，现已经用于公司运维环境中，基于原项目所做更新如下:
 
@@ -27,7 +27,7 @@ awesome-scripts [![License](https://imgields.io/badge/license-Apache%202-4EB1BA.
 
 Three methods:
 
-- `curl -s "https://raw.githubusercontent.com/superhj1987/awesome-scripts/master/self-installer" | bash -s`
+- `curl -s "https://raw.githubusercontent.com/superhj1987/awesome-scripts/master/self-installer.sh" | bash -s`
 - Download the source and `make install`
 - Download the source and set `bin` to the System Path to use the common usage shells
 
