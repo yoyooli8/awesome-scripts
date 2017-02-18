@@ -46,9 +46,6 @@ opscripts uninstall
 * `opscripts update`
 > update opscripts
 
-* `opscripts uninstall`
-> uninstall opscripts 
-
 ## 命令列表及文档
 
 ### :coffee: [`Java`相关脚本](docs/java.md)
