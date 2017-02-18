@@ -5,7 +5,7 @@
 # @Usage
 #   $ ./change_git_origin_remote [new_origin_remote_url]
 #
-# @author Jerry Lee
+# @author Bryant Hang
 
 git remote rm origin
 git remote add origin $1
