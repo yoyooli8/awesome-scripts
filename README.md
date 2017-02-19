@@ -5,7 +5,7 @@ awesome-scripts [![License](https://img.shields.io/badge/license-Apache%202-4EB1
 
 本项目fork自<https://github.com/oldratlee/useful-scripts/>，现已经用于公司运维环境中，基于原项目所做更新如下:
 
-- 自安装脚本的修改：[self-installer](self-installer)
+- 自安装脚本的修改：[self-installer.sh](self-installer.sh)
 - Linux守护进程模板: [tpl/run-cmd-tpl](tpl/run-cmd-tpl)
 - 增加脚本统一入口：[opscripts](opscripts)
 - 检查当前系统是否运行在虚拟机上: [check-vm](bin/check-vm)
