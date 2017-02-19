@@ -16,13 +16,17 @@ if [ "$1" = "list" ];then
     list_command "$@"
 fi
 
-tools_dir=$OPSCRIPTS_DIR/bin/
+bin_dir=$OPSCRIPTS_DIR/bin/
+java_bin_dir=$OPSCRIPTS_DIR/java/bin/
 command_file=$1;shift
-command=`find $tools_dir -maxdepth 1 -name $command_file `
+command=`find $bin_dir -maxdepth 1 -name $command_file `
 
 if [ ! -f "$command" ]; then
-	echo "$command_file command not found!"
-	exit 1;
+    command=`find $java_bin_dir -maxdepth 1 -name $command_file `
+    if [ ! -f "$command" ]; then
+		echo "$command_file command not found!"
+		exit 1;
+    fi
 fi
 
 exec "$command" "$@"
