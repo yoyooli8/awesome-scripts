@@ -7,9 +7,10 @@ awesome-scripts [![License](https://img.shields.io/badge/license-Apache%202-4EB1
 
 - 自安装脚本的修改：[self-installer](self-installer)
 - Linux守护进程模板: [tpl/run-cmd-tpl](tpl/run-cmd-tpl)
+- 增加脚本统一入口：[opscripts](opscripts)
 - 检查当前系统是否运行在虚拟机上: [check-vm](bin/check-vm)
 - 改变当前git项目的origin remote的url: [change_git_origin_remote](bin/change_git_origin_remote)
-- 增加脚本统一入口：[opscripts](opscripts)
+- 增加java运维脚本
 
 此外，原项目中以下为本人所贡献代码：
 
