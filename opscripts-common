@@ -8,12 +8,12 @@ print_title (){
     length=`echo "$1" |wc -c`
     prefix_count=$(((30-length)/2))
     for i in `seq 0 $prefix_count` ;do
-	echo -n '='
+	   echo -n '='
     done
     echo -n " $1 "
     postfix_count=$((length % 2 != 0 ? prefix_count+1: prefix_count))
     for i in `seq 0 $postfix_count` ;do
-	echo -n '='
+	   echo -n '='
     done
     printf '\r\n'
 }

@@ -32,8 +32,17 @@ do_download(){
         echo "fetching source from github"
         do_fetch  $fetch_dir;
     else
-        echo "can't locate git ,using archive mode."
-        do_download_archive $fetch_dir;
+        set +e
+        type "svn" >/dev/null 2>/dev/null
+        has_svn=$?
+        set -e
+        if [ "$has_svn" -eq 0 ];then
+            echo "fetching source from github using svn"
+            do_fetch $fetch_dir svn;
+        else
+            echo "can't locate svn ,using archive mode."
+            do_download_archive $fetch_dir;
+        fi
     fi
     echo "awesome-scripts is downloaded to $fetch_dir/awesome-scripts"
 }
@@ -54,7 +63,11 @@ do_fetch(){
     fi
     cd $fetch_dir ;
     test_exists awesome-scripts;
-    git clone https://github.com/superhj1987/awesome-scripts.git awesome-scripts --depth=1
+    if [[ $# < 2 || "$2" = "git" ]]; then
+        git clone https://github.com/superhj1987/awesome-scripts.git awesome-scripts --depth=1
+    else
+        svn checkout https://github.com/superhj1987/awesome-scripts.git awesome-scripts
+    fi
     cd awesome-scripts 
     return 0 
 }
@@ -88,15 +101,15 @@ main(){
     type=$?
     set -e
     case "$type" in 
-    ("1")
-        echo "Launching awesome-scripts installer..."
-        do_download `pwd`
-        do_install
-        ;;
-    ("2")
-        echo "Start downloading awesome-scripts ..."
-        do_download `pwd`
-        ;;
+        ("1")
+            echo "Launching awesome-scripts installer..."
+            do_download `pwd`
+            do_install
+            ;;
+        ("2")
+            echo "Start downloading awesome-scripts ..."
+            do_download `pwd`
+            ;;
     esac
 }
 
