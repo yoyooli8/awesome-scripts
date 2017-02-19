@@ -19,17 +19,17 @@
         - [用法](#%E7%94%A8%E6%B3%95)
         - [示例](#%E7%A4%BA%E4%BE%8B-4)
         - [贡献者](#%E8%B4%A1%E7%8C%AE%E8%80%85)
-    - [:beer: tcp-connection-state-counter.sh](#beer-tcp-connection-state-countersh)
+    - [:beer: tcp-connection-state-counter](#beer-tcp-connection-state-counter)
         - [用法](#%E7%94%A8%E6%B3%95-1)
         - [示例](#%E7%A4%BA%E4%BE%8B-5)
 - [`Shell`开发/测试加强](#shell%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95%E5%8A%A0%E5%BC%BA)
-    - [:beer: echo-args.sh](#beer-echo-argssh)
+    - [:beer: echo-args](#beer-echo-args)
         - [示例](#%E7%A4%BA%E4%BE%8B-6)
         - [使用方式](#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F)
-    - [:beer: console-text-color-themes.sh](#beer-console-text-color-themessh)
+    - [:beer: console-text-color-themes](#beer-console-text-color-themes)
         - [贡献者](#%E8%B4%A1%E7%8C%AE%E8%80%85-1)
         - [参考资料](#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99-1)
-    - [:beer: parseOpts.sh](#beer-parseoptssh)
+    - [:beer: parseOpts](#beer-parseopts)
         - [用法](#%E7%94%A8%E6%B3%95-2)
         - [示例](#%E7%A4%BA%E4%BE%8B-7)
         - [兼容性](#%E5%85%BC%E5%AE%B9%E6%80%A7)
@@ -40,7 +40,7 @@
 `Shell`使用加强
 ====================================
 
-:beer: [c](../c)
+:beer: [c](../bin/c)
 ----------------------
 
 原样命令行输出，并拷贝标准输出到系统剪贴板，省去`CTRL+C`，`CTRL+V`操作。支持`Linux`、`Mac`、`Windows`（`cygwin`、`MSSYS`）。
@@ -77,7 +77,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAz+ETZEgoLeIiC0rjWewdDs0sbo8c...== a@b.com
 
 [拷贝复制命令行输出放在系统剪贴板上](http://oldratlee.com/post/2012-12-23/command-output-to-clip)，给出了不同系统可用命令。
 
-:beer: [colines](../colines)
+:beer: [colines](../bin/colines)
 ----------------------
 
 彩色`cat`出文件行，方便人眼区分不同的行。
@@ -110,7 +110,7 @@ file2 line2
 
 注：上面显示中，没有彩色，在控制台上运行可以看出彩色效果。
 
-:beer: [a2l](../a2l)
+:beer: [a2l](../bin/a2l)
 ----------------------
 
 按行彩色输出参数，方便人眼查看。
@@ -137,7 +137,7 @@ test-cases/self-installer.sh
 
 注：上面显示中，没有彩色，在控制台上运行可以看出彩色效果。
 
-:beer: [ap](../ap) and [rp](../rp)
+:beer: [ap](../bin/ap) and [rp](../bin/rp)
 ----------------------
 
 批量转换文件路径为绝对路径/相对路径，会自动跟踪链接并规范化路径。
@@ -168,7 +168,7 @@ $ rp /home /etc/../etc /home/admin
 ../../etc
 ```
 
-:beer: [xpl](../xpl) and [xpf](../xpf)
+:beer: [xpl](../bin/xpl) and [xpf](../bin/xpf)
 ----------------------
 
 在命令行中快速完成 在文件浏览器中 打开/选中 指定的文件或文件夹的操作。
@@ -206,7 +206,7 @@ xpf /path/to/dir1 /path/to/foo1.txt
 
 [Linhua Tan](https://github.com/toolchainX)修复Linux的选定Bug。
 
-:beer: [tcp-connection-state-counter.sh](../tcp-connection-state-counter.sh)
+:beer: [tcp-connection-state-counter](../bin/tcp-connection-state-counter)
 ----------------------
 
 统计各个`TCP`连接状态的个数。
@@ -235,7 +235,7 @@ SYN_SENT     17
 `Shell`开发/测试加强
 ====================================
 
-:beer: [echo-args.sh](../echo-args.sh)
+:beer: [echo-args](../bin/echo-args)
 ----------------------
 
 在编写脚本时，常常要确认输入参数是否是期望的：参数个数，参数值（可能包含有人眼不容易发现的空格问题）。
@@ -261,7 +261,7 @@ $ ./echo-args.sh 1 "  2 foo  " "3        3"
 
 这样可以不改其它的程序，查看到输入参数的信息。
 
-:beer: [console-text-color-themes.sh](../console-text-color-themes.sh)
+:beer: [console-text-color-themes](../bin/console-text-color-themes)
 ----------------------
 
 显示`Terminator`的全部文字彩色组合的效果及其打印方式。
@@ -291,7 +291,7 @@ colorEchoWithoutNewLine "4;33;40" "Hello world!" "Hello Hell!"
 
 - [utensil](https://github.com/utensil)的[在Bash下输出彩色的文本](http://utensil.github.io/tech/2007/09/10/colorful-bash.html)，这是篇很有信息量很钻研的文章！
 
-:beer: [parseOpts.sh](../parseOpts.sh)
+:beer: [parseOpts](../bin/parseOpts.sh)
 ----------------------
 
 提供命令行选项解析函数`parseOpts`，以加强支持选项的值有多个值（即数组）。  
@@ -338,8 +338,8 @@ parseOpts "a,a-long|b,b-long:|c,c-long+" "$@"
 ### 示例
 
 ```bash
-# 导入parseOpts.sh
-source /path/to/parseOpts.sh
+# 导入parseOpts
+source /path/to/parseOpts
 
 parseOpts "a,a-long|b,b-long:|c,c-long+" -a -b bv --c-long c.sh -p pv -q qv arg1 \; aa bb cc
 # 可以通过下面全局变量来获得解析的参数值：
@@ -355,8 +355,8 @@ parseOpts "a,a-long|b,b-long:|c,c-long+" -a -b bv --c-long c.sh -p pv -q qv arg1
 `--`的使用效果示例：
 
 ```bash
-# 导入parseOpts.sh
-source /path/to/parseOpts.sh
+# 导入parseOpts
+source /path/to/parseOpts
 
 parseOpts "a,a-long|b,b-long:|c,c-long+" -a -b bv -- --c-long c.sh -p pv -q qv arg1 \; aa bb cc
 # 可以通过下面全局变量来获得解析的参数值：
@@ -390,8 +390,7 @@ parseOpts "a,a-long|b,b-long:|c,c-long+" -a -b bv -- --c-long c.sh -p pv -q qv a
 
 [Khotyn Huang](https://github.com/khotyn)指出`bash` `3.0`下使用有问题，并提供`bash` `3.0`的测试机器。
 
-<<<<<<< HEAD
-:beer: [xpl](../xpl) and [xpf](../xpf)
+:beer: [xpl](../bin/xpl) and [xpf](../bin/xpf)
 ----------------------
 
 * `xpl`：在文件浏览器中打开指定的文件或文件夹。  
@@ -427,7 +426,7 @@ xpf /path/to/dir1 /path/to/foo1.txt
 
 [Linhua Tan](https://github.com/toolchainX)修复Linux的选定Bug。
 
-:beer: [show-cpu-and-memory.sh](../show-cpu-and-memory.sh)
+:beer: [show-cpu-and-memory](../bin/show-cpu-and-memory)
 ----------------------
 
 显示当前cpu和内存使用状况，包括全局和各个进程的。
@@ -436,7 +435,7 @@ xpf /path/to/dir1 /path/to/foo1.txt
 
 直接执行即可
 
-:beer: [monitor-host.sh](../monitor-host.sh)
+:beer: [monitor-host](../bin/monitor-host)
 ----------------------
 
 监控当前的内存、cpu、io以及网络状况，写入相应的log文件。
@@ -461,7 +460,7 @@ STOP_COMMAND="kill -9"
 NAME="OM Switch Monitor"
 </pre>
 
-:beer: [check-vm.py](../check-vm.py)
+:beer: [check-vm](../bin/check-vm.py)
 ----------------------
 
 检查当前linux是否是在虚拟机上，包括openvz/xen、pv/uml、VmWare。
@@ -470,7 +469,7 @@ NAME="OM Switch Monitor"
 
 直接执行即可
 
-:beer: [get-pip.py](../get-pip.py)
+:beer: [get-pip](../bin/get-pip.py)
 ----------------------
 
 安装pip
@@ -478,5 +477,3 @@ NAME="OM Switch Monitor"
 ### 用法
 
 直接执行即可
-=======
->>>>>>> source/master

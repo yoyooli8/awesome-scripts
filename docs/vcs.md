@@ -1,7 +1,7 @@
 :snail: `VCS`相关脚本
 ====================================
 
-:beer: [swtrunk.sh](../swtrunk.sh)
+:beer: [swtrunk](../bin/swtrunk)
 ----------------------
 
 `svn`工作目录从分支（`branches`）切换到主干（`trunk`）。
@@ -15,30 +15,30 @@
 ### 用法
 
 ```bash
-swtrunk.sh # 缺省使用当前目录作为SVN工作目录
-cp-svn-url.sh /path/to/svn/work/directory
-cp-svn-url.sh /path/to/svn/work/directory1 /path/to/svn/work/directory2 # SVN工作目录个数不限制
+swtrunk # 缺省使用当前目录作为SVN工作目录
+cp-svn-url /path/to/svn/work/directory
+cp-svn-url /path/to/svn/work/directory1 /path/to/svn/work/directory2 # SVN工作目录个数不限制
 ```
 
 ### 示例
 
 ```bash
-$ swtrunk.sh
+$ swtrunk
 # <svn sw output...>
 svn work dir . switch from http://www.foo.com/project1/branches/feature1 to http://www.foo.com/project1/trunk !
 
-$ swtrunk.sh /path/to/svn/work/dir
+$ swtrunk /path/to/svn/work/dir
 # <svn sw output...>
 svn work dir /path/to/svn/work/dir switch from http://www.foo.com/project1/branches/feature1 to http://www.foo.com/project1/trunk !
 
-$ swtrunk.sh /path/to/svn/work/dir1 /path/to/svn/work/dir2
+$ swtrunk /path/to/svn/work/dir1 /path/to/svn/work/dir2
 # <svn sw output...>
 svn work dir /path/to/svn/work/dir1 switch from http://www.foo.com/project1/branches/feature1 to http://www.foo.com/project1/trunk !
 # <svn sw output...>
 svn work dir /path/to/svn/work/dir2 switch from http://www.foo.com/project2/branches/feature1 to http://www.foo.com/project2/trunk !
 ```
 
-:beer: [svn-merge-stop-on-copy.sh](../svn-merge-stop-on-copy.sh)
+:beer: [svn-merge-stop-on-copy](../bin/svn-merge-stop-on-copy)
 ----------------------
 
 把指定的远程分支从刚新建分支以来的修改合并到本地`svn`目录或是另一个远程分支。
@@ -46,24 +46,24 @@ svn work dir /path/to/svn/work/dir2 switch from http://www.foo.com/project2/bran
 ### 用法
 
 ```bash
-svn-merge-stop-on-copy.sh <来源的远程分支> # 合并当前本地svn目录
-svn-merge-stop-on-copy.sh <来源的远程分支> <目标本地svn目录>
-svn-merge-stop-on-copy.sh <来源的远程分支> <目标远程分支>
+svn-merge-stop-on-copy <来源的远程分支> # 合并当前本地svn目录
+svn-merge-stop-on-copy <来源的远程分支> <目标本地svn目录>
+svn-merge-stop-on-copy <来源的远程分支> <目标远程分支>
 ```
 
 ### 示例
 
 ```bash
-svn-merge-stop-on-copy.sh http://www.foo.com/project1/branches/feature1 # 缺省使用当前目录作为SVN工作目录
-svn-merge-stop-on-copy.sh http://www.foo.com/project1/branches/feature1 /path/to/svn/work/directory
-svn-merge-stop-on-copy.sh http://www.foo.com/project1/branches/feature1 http://www.foo.com/project1/branches/feature2
+svn-merge-stop-on-copy http://www.foo.com/project1/branches/feature1 # 缺省使用当前目录作为SVN工作目录
+svn-merge-stop-on-copy http://www.foo.com/project1/branches/feature1 /path/to/svn/work/directory
+svn-merge-stop-on-copy http://www.foo.com/project1/branches/feature1 http://www.foo.com/project1/branches/feature2
 ```
 
 ### 贡献者
 
 [姜太公](https://github.com/jiangjizhong)提供此脚本。
 
-:beer: [cp-svn-url.sh](../cp-svn-url.sh)
+:beer: [cp-svn-url](../bin/cp-svn-url)
 ----------------------
 
 拷贝当前`svn`目录对应的远程分支到系统的粘贴板，省去`CTRL+C`操作。
@@ -71,14 +71,14 @@ svn-merge-stop-on-copy.sh http://www.foo.com/project1/branches/feature1 http://w
 ### 用法
 
 ```bash
-cp-svn-url.sh # 缺省使用当前目录作为SVN工作目录
-cp-svn-url.sh /path/to/svn/work/directory
+cp-svn-url # 缺省使用当前目录作为SVN工作目录
+cp-svn-url /path/to/svn/work/directory
 ```
 
 ### 示例
 
 ```bash
-$ cp-svn-url.sh
+$ cp-svn-url
 http://www.foo.com/project1/branches/feature1 copied!
 ```
 

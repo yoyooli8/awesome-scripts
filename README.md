@@ -29,8 +29,24 @@ awesome-scripts [![License](https://img.shields.io/badge/license-Apache%202-4EB1
 三种方法
 
 - `curl -s "https://raw.githubusercontent.com/superhj1987/awesome-scripts/master/self-installer.sh" | bash -s`
-- Download the source and `make install`
-- Download the source and set `bin` to the System Path to use the common usage shells
+- git/svn the source and `make install`
+- git/svn the source and set `bin` to the System Path to use the common usage shells
+
+此外，可以下载和运行单个文件，以[`show-busy-java-threads`](https://raw.githubusercontent.com/superhj1987/awesome-scripts/master/java/bin/show-busy-java-threads)为例。
+
+- 直接运行：
+
+	> ```bash
+curl -sLk 'https://raw.githubusercontent.com/superhj1987/awesome-scripts/master/java/bin/show-busy-java-threads' | bash
+```
+
+- 下载单个文件
+
+	> ```bash
+wget --no-check-certificate https://raw.githubusercontent.com/superhj1987/awesome-scripts/master/java/bin/show-busy-java-threads
+chmod +x show-busy-java-threads.sh
+./show-busy-java-threads.sh
+```
 
 ## 卸载
 
@@ -134,30 +150,28 @@ opscripts uninstall
 1. [ap & rp](docs/shell.md#beer-ap-and-rp)  
     
     > 批量转换文件路径为绝对路径/相对路径，会自动跟踪链接并规范化路径。
-1. [echo-args](docs/shell.md#beer-echo-argssh)    
+1. [echo-args](docs/shell.md#beer-echo-args)    
     
     > 输出脚本收到的参数，在控制台运行时，把参数值括起的括号显示成 **红色**，方便人眼查看。用于调试脚本参数输入。
-1. [console-text-color-themes](docs/shell.md#beer-console-text-color-themessh)  
+1. [console-text-color-themes](docs/shell.md#beer-console-text-color-themes)  
     
     > 显示`Terminator`的全部文字彩色组合的效果及其打印方式。
-1. [tcp-connection-state-counter](docs/shell.md#beer-tcp-connection-state-countersh)   
+1. [tcp-connection-state-counter](docs/shell.md#beer-tcp-connection-state-counter)   
     
     > 统计各个`TCP`连接状态的个数。用于方便排查系统连接负荷问题。
-1. [parseOpts](docs/shell.md#beer-parseoptssh)   
+1. [parseOpts](docs/shell.md#beer-parseopts)   
     
     > 提供命令行选项解析函数`parseOpts`，支持选项的值有多个值（即数组）。
 1. [xpl and xpf](docs/shell.md#beer-xpl-and-xpf)    
     
     > 在文件浏览器中 打开/选中 指定的文件或文件夹。
-1. [show-cpu-and-memory](docs/shell.md#beer-show-cpu-and-memorysh)    
+1. [show-cpu-and-memory](docs/shell.md#beer-show-cpu-and-memory)    
     
     > 显示当前cpu和内存使用状况，包括全局和各个进程的。
-1. [monitor-host](docs/shell.md#beer-monitor-hostsh)    
+1. [monitor-host](docs/shell.md#beer-monitor-host)    
     
     > 监控当前的内存、cpu、io以及网络状况，写入相应的log文件,建议使用crontab，定时调用此脚本。
-1. [tpl/run-cmd-tpl](docs/shell.md#beer-tplrun-cmd-tplsh)    
-    
-    > linux下后台执行守护程序的模板shell脚本,修改文件中几个选项的值为需要执行的程序即可使用。
+
 1. [check-vm](docs/shell.md#beer-check-vmpy)    
     
     > 检查当前linux是否是在虚拟机上，包括openvz/xen、pv/uml、VmWare。
@@ -184,15 +198,19 @@ opscripts uninstall
 	> -s 表示对swap占用量进行排序（升序） -r 表示对swap占用量进行排序（降序），使用-r的前提是-s参数开启。 -g grep命令的封装，用于查找特定类型的进程。比如我想查找带有java的进程，可以使用sudo wtool swap -g java
 注意，使用该功能需要sudo权限
 
+1. [tpl/run-cmd-tpl.sh](docs/shell.md#beer-tplrun-cmd-tplsh)    
+    
+    > linux下后台执行守护程序的模板shell脚本,修改文件中几个选项的值为需要执行的程序即可使用。
+
 ### :watch: [`VCS`相关脚本](docs/vcs.md)
 
-1. [swtrunk](docs/vcs.md#beer-swtrunksh)  
+1. [swtrunk](docs/vcs.md#beer-swtrunk)  
     
     > 自动`svn`工作目录从分支（`branches`）切换到主干（`trunk`）。
-1. [svn-merge-stop-on-copy](docs/vcs.md#beer-svn-merge-stop-on-copysh)  
+1. [svn-merge-stop-on-copy](docs/vcs.md#beer-svn-merge-stop-on-copy)  
     
     > 把指定的远程分支从刚新建分支以来的修改合并到本地`svn`目录或是另一个远程分支。
-1. [cp-svn-url](docs/vcs.md#beer-cp-svn-urlsh)  
+1. [cp-svn-url](docs/vcs.md#beer-cp-svn-url)  
     
     > 拷贝当前`svn`目录对应的远程分支到系统的粘贴板，省去`CTRL+C`操作。
 1. [change_git_origin_remote](bin/change_git_origin_remote)  

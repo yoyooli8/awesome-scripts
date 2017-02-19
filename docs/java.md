@@ -5,7 +5,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [:beer: show-busy-java-threads.sh](#beer-show-busy-java-threadssh)
+- [:beer: show-busy-java-threads](#beer-show-busy-java-threads)
     - [用法](#%E7%94%A8%E6%B3%95)
     - [示例](#%E7%A4%BA%E4%BE%8B)
     - [贡献者](#%E8%B4%A1%E7%8C%AE%E8%80%85)
@@ -17,14 +17,14 @@
         - [`Android`开发场景使用说明](#android%E5%BC%80%E5%8F%91%E5%9C%BA%E6%99%AF%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
     - [示例](#%E7%A4%BA%E4%BE%8B-1)
     - [贡献者](#%E8%B4%A1%E7%8C%AE%E8%80%85-1)
-- [:beer: find-in-jars.sh](#beer-find-in-jarssh)
+- [:beer: find-in-jars](#beer-find-in-jars)
     - [用法](#%E7%94%A8%E6%B3%95-2)
     - [示例](#%E7%A4%BA%E4%BE%8B-2)
     - [参考资料](#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-:beer: [show-busy-java-threads.sh](../show-busy-java-threads.sh)
+:beer: [show-busy-java-threads](../java.bin/show-busy-java-threads)
 ----------------------
 
 用于快速排查`Java`的`CPU`性能问题(`top us`值过高)，自动查出运行的`Java`进程中消耗`CPU`多的线程，并打印出其线程栈，从而确定导致性能问题的方法调用。
@@ -45,31 +45,31 @@ PS，如何操作可以参见[@bluedavy](http://weibo.com/bluedavy)的《分布�
 ### 用法
 
 ```bash
-show-busy-java-threads.sh
+show-busy-java-threads
 # 从 所有的 Java进程中找出最消耗CPU的线程（缺省5个），打印出其线程栈。
 
-show-busy-java-threads.sh -c <要显示的线程栈数>
+show-busy-java-threads -c <要显示的线程栈数>
 
-show-busy-java-threads.sh -c <要显示的线程栈数> -p <指定的Java Process>
+show-busy-java-threads -c <要显示的线程栈数> -p <指定的Java Process>
 
 ##############################
 # 注意：
 ##############################
 # 如果Java进程的用户 与 执行脚本的当前用户 不同，则jstack不了这个Java进程。
 # 为了能切换到Java进程的用户，需要加sudo来执行，即可以解决：
-sudo show-busy-java-threads.sh
+sudo show-busy-java-threads
 ```
 
 ### 示例
 
 ```bash
-$ show-busy-java-threads.sh
+$ show-busy-java-threads
 [1] Busy(57.0%) thread(23355/0x5b3b) stack of java process(23269) under user(admin):
 "pool-1-thread-1" prio=10 tid=0x000000005b5c5000 nid=0x5b3b runnable [0x000000004062c000]
    java.lang.Thread.State: RUNNABLE
     at java.text.DateFormat.format(DateFormat.java:316)
     at com.xxx.foo.services.common.DateFormatUtil.format(DateFormatUtil.java:41)
-    at com.xxx.foo.shared.monitor.schedule.AppMonitorDataAvgScheduler.run(AppMonitorDataAvgScheduler.java:127)
+    at com.xxx.fooared.monitor.schedule.AppMonitorDataAvgScheduler.run(AppMonitorDataAvgScheduler.java:127)
     at com.xxx.foo.services.common.utils.AliTimer$2.run(AliTimer.java:128)
     at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
     at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
@@ -87,7 +87,7 @@ $ show-busy-java-threads.sh
     at java.text.SimpleDateFormat.format(SimpleDateFormat.java:869)
     at java.text.DateFormat.format(DateFormat.java:316)
     at com.xxx.foo.services.common.DateFormatUtil.format(DateFormatUtil.java:41)
-    at com.xxx.foo.shared.monitor.schedule.AppMonitorDataAvgScheduler.run(AppMonitorDataAvgScheduler.java:126)
+    at com.xxx.fooared.monitor.schedule.AppMonitorDataAvgScheduler.run(AppMonitorDataAvgScheduler.java:126)
     at com.xxx.foo.services.common.utils.AliTimer$2.run(AliTimer.java:128)
     at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
     at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
@@ -99,7 +99,7 @@ $ show-busy-java-threads.sh
 - `AppMonitorDataAvgScheduler.run`调用`DateFormat.format`次数比较频繁。
 - `DateFormat.format`比较慢。（这个可以由`DateFormat.format`的实现确定。）
 
-多个执行几次`show-busy-java-threads.sh`，如果上面情况高概率出现，则可以确定上面的判定。  
+多个执行几次`show-busy-java-threads`，如果上面情况高概率出现，则可以确定上面的判定。  
 \# 因为调用越少代码执行越快，则出现在线程栈的概率就越低。
 
 分析`shared.monitor.schedule.AppMonitorDataAvgScheduler.run`实现逻辑和调用方式，以优化实现解决问题。
@@ -111,7 +111,7 @@ $ show-busy-java-threads.sh
     - 优化性能，通过`read -a`简化反复的`awk`操作 #51
     - 发现并解决`jstack`非当前用户`Java`进程的问题 #50
 
-:beer: [show-duplicate-java-classes](../show-duplicate-java-classes)
+:beer: [show-duplicate-java-classes](../java/bin/show-duplicate-java-classes)
 ----------------------
 
 找出`Java Lib`（`Java`库，即`Jar`文件）或`Class`目录（类目录）中的重复类。
@@ -261,7 +261,7 @@ class paths to find:
 
 [tgic](https://github.com/tg123)提供此脚本。友情贡献者的链接[commandlinefu.cn](http://commandlinefu.cn/)|[微博linux命令行精选](http://weibo.com/u/2674868673)
 
-:beer: [find-in-jars.sh](../find-in-jars.sh)
+:beer: [find-in-jars](../java/bin/find-in-jars)
 ----------------------
 
 在当前目录下所有`jar`文件里，查找类或资源文件。
@@ -269,10 +269,10 @@ class paths to find:
 ### 用法
 
 ```bash
-find-in-jars.sh 'log4j\.properties'
-find-in-jars.sh 'log4j\.xml$' -d /path/to/find/directory
-find-in-jars.sh log4j\\.xml
-find-in-jars.sh 'log4j\.properties|log4j\.xml'
+find-in-jars 'log4j\.properties'
+find-in-jars 'log4j\.xml$' -d /path/to/find/directory
+find-in-jars log4j\\.xml
+find-in-jars 'log4j\.properties|log4j\.xml'
 ```
 
 注意，后面Pattern是`grep`的 **扩展**正则表达式。
