@@ -8,14 +8,8 @@ awesome-scripts [![License](https://img.shields.io/badge/license-Apache%202-4EB1
 - 自安装脚本的修改：[self-installer.sh](self-installer.sh)
 - Linux守护进程模板: [tpl/run-cmd-tpl](tpl/run-cmd-tpl)
 - 增加脚本统一入口：[opscripts](opscripts)
-- 检查当前系统是否运行在虚拟机上: [check-vm](bin/check-vm)
-- 改变当前git项目的origin remote的url: [change_git_origin_remote](bin/change_git_origin_remote)
-- 集成开源java运维工具脚本(housemd、sjk、greys、wtool)
-
-此外，原项目中以下为本人所贡献代码：
-
-- [show-cpu-and-memory](bin/show-cpu-and-memory)
-- [monitor-host](bin/monitor-host)
+- 集成开源java运维工具脚本：housemd、greys、sjk、jtop等
+- 部分脚本的编写
 
 ------
 
