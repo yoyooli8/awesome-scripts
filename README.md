@@ -139,7 +139,7 @@ opscripts uninstall
 1. [greys](java/bin/greys)
 
     `greys <PID>[@IP:PORT]`
-    > 使用greys对java程序进行运行时跟踪，支持的操作有：
+    > 使用greys对java程序进行运行时跟踪(不传参数，需要先`greys -C pid`,再greys)。支持的操作有：
     >
     > - 查看加载类，方法信息
     > - 查看JVM当前基础信息
