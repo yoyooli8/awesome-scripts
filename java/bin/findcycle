@@ -8,7 +8,7 @@ else
 fi
 if [ ! -f "$sourcepath/pom.xml" ]; then
     echo "$sourcepath is not a vaild maven project!"
-    echo 'Usage : wtool findcycle [path]'
+    echo 'Usage : findcycle [path]'
     exit 1;
 fi
 mvn=`which mvn`
