@@ -30,18 +30,19 @@ awesome-scripts [![License](https://img.shields.io/badge/license-Apache%202-4EB1
 
 - 直接运行：
 
-```bash
-curl -sLk 'https://raw.githubusercontent.com/superhj1987/awesome-scripts/master/java/bin/show-busy-java-threads' | bash
-```
+	```bash
+	curl -sLk 'https://raw.githubusercontent.com/superhj1987/awesome-scripts/master/java/bin/show-busy-java-threads' | bash
+	```
 
 - 下载单个文件
 
-```bash
-wget --no-check-certificate https://raw.githubusercontent.com/superhj1987/awesome-scripts/master/java/bin/show-busy-java-threads
-chmod +x show-busy-java-threads.sh
+	```bash
+	wget --no-check-certificate https://raw.githubusercontent.com/superhj1987/awesome-scripts/master/java/bin/show-busy-java-threads
+	
+	chmod +x show-busy-java-threads.sh
 
-./show-busy-java-threads.sh
-```
+	./show-busy-java-threads.sh
+	```
 
 ## 卸载
 
