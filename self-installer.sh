@@ -66,7 +66,7 @@ do_fetch(){
     if [[ $# < 2 || "$2" = "git" ]]; then
         git clone https://github.com/superhj1987/awesome-scripts.git awesome-scripts --depth=1
     else
-        svn checkout https://github.com/superhj1987/awesome-scripts.git awesome-scripts
+        svn checkout https://github.com/superhj1987/awesome-scripts/trunk awesome-scripts
     fi
     cd awesome-scripts 
     return 0 
