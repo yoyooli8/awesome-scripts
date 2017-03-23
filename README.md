@@ -23,26 +23,22 @@ awesome-scripts [![License](https://img.shields.io/badge/license-Apache%202-4EB1
 三种方法
 
 - `curl -s "https://raw.githubusercontent.com/superhj1987/awesome-scripts/master/self-installer.sh" | bash -s`
-- git/svn the source and `make install`
-- git/svn the source and set `bin` to the System Path to use the common usage shells
+- git/svn checkout the source and `make install`
+- git/svn checkout the source and set `bin` to the System Path to use the common usage shells
 
 此外，可以下载和运行单个文件，以[`show-busy-java-threads`](https://raw.githubusercontent.com/superhj1987/awesome-scripts/master/java/bin/show-busy-java-threads)为例。
 
 - 直接运行：
 
-	```bash
-	curl -sLk 'https://raw.githubusercontent.com/superhj1987/awesome-scripts/master/java/bin/show-busy-java-threads' | bash
-	```
+		curl -sLk 'https://raw.githubusercontent.com/superhj1987/awesome-scripts/master/java/bin/show-busy-java-threads' | bash
 
 - 下载单个文件
 
-	```bash
-	wget --no-check-certificate https://raw.githubusercontent.com/superhj1987/awesome-scripts/master/java/bin/show-busy-java-threads
+		wget --no-check-certificate https://raw.githubusercontent.com/superhj1987/awesome-scripts/master/java/bin/show-busy-java-threads
 	
-	chmod +x show-busy-java-threads.sh
+		chmod +x show-busy-java-threads.sh
 
-	./show-busy-java-threads.sh
-	```
+		./show-busy-java-threads.sh
 
 ## 卸载
 
