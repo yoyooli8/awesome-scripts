@@ -1,5 +1,7 @@
 #!/bin/bash
-## start housemd debugger
+## start sjk
+
+echo "Site: https://github.com/aragozin/jvm-tools"
 
 base_dir=$(dirname "$(echo "$0" | sed -e '')")
 if [ ! "$JAVA_HOME" = "" ] ;then
