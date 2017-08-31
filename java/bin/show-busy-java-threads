@@ -148,19 +148,18 @@ printStackOfThreads() {
 update_count=0
 while true
 do
-    echo '==============================================='
+    echo '======================loading...======================'
     ps -Leo pid,lwp,user,comm,pcpu --no-headers | {
         [ -z "${pid}" ] &&
         awk '$4=="java"{print $0}' ||
         awk -v "pid=${pid}" '$1==pid,$4=="java"{print $0}'
     } | sort -k5 -r -n | head --lines "${count}" | printStackOfThreads 
-    echo '==============================================='
 
     if (( $update_delay <= 0 )); then #不需要定时刷新数据
         break
     fi
 
-    update_count=$((update_count + 1))
+    ((update_count++))
     if (( $update_limit > 0 && $update_count == $update_limit )); then #刷新次数到达上限
         break #
     fi
