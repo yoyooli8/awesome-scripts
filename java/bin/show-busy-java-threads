@@ -161,9 +161,9 @@ do
     fi
 
     update_count=$((update_count + 1))
-    if (( $update_limit > 0 && $update_count == $update_limit )); then
+    if (( $update_limit > 0 && $update_count == $update_limit )); then #刷新次数到达上限
         break #
     fi
 
-    sleep $update_delay #暂停
+    sleep $update_delay #休眠
 done
