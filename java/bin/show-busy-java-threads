@@ -6,13 +6,14 @@
 #   $ ./show-busy-java-threads.sh
 #
 # @author Jerry Lee
+# add auto update config by superhj1987
 
 readonly PROG=`basename $0`
 readonly -a COMMAND_LINE=("$0" "$@")
 
 usage() {
     cat <<EOF
-Usage: ${PROG} [OPTION]...
+Usage: ${PROG} [OPTION] [delay [ucount]]
 Find out the highest cpu consumed threads of java, and print the stack of these threads.
 Example: ${PROG} -c 10
 
@@ -21,6 +22,8 @@ Options:
                     default from all java process.
     -c, --count     set the thread count to show, default is 5
     -h, --help      display this help and exit
+    delay is the delay between updates in seconds.
+    ucount is the number of updates.
 EOF
     exit $1
 }
@@ -49,6 +52,8 @@ while true; do
     esac
 done
 count=${count:-5}
+update_delay=${1:-0}
+update_limit=${2:-0}
 
 redEcho() {
     [ -c /dev/stdout ] && {
@@ -140,9 +145,25 @@ printStackOfThreads() {
     done
 }
 
+update_count=0
+while true
+do
+    echo '==============================================='
+    ps -Leo pid,lwp,user,comm,pcpu --no-headers | {
+        [ -z "${pid}" ] &&
+        awk '$4=="java"{print $0}' ||
+        awk -v "pid=${pid}" '$1==pid,$4=="java"{print $0}'
+    } | sort -k5 -r -n | head --lines "${count}" | printStackOfThreads 
+    echo '==============================================='
 
-ps -Leo pid,lwp,user,comm,pcpu --no-headers | {
-    [ -z "${pid}" ] &&
-    awk '$4=="java"{print $0}' ||
-    awk -v "pid=${pid}" '$1==pid,$4=="java"{print $0}'
-} | sort -k5 -r -n | head --lines "${count}" | printStackOfThreads
+    if (( $update_delay <= 0 )); then #不需要定时刷新数据
+        break
+    fi
+
+    update_count=$((update_count + 1))
+    if (( $update_limit > 0 && $update_count == $update_limit )); then
+        break #
+    fi
+
+    sleep $update_delay #暂停
+done

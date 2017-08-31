@@ -45,12 +45,14 @@ PS，如何操作可以参见[@bluedavy](http://weibo.com/bluedavy)的《分布�
 ### 用法
 
 ```bash
-show-busy-java-threads
+show-busy-java-threads [Options] [delay [ucount]]
 # 从 所有的 Java进程中找出最消耗CPU的线程（缺省5个），打印出其线程栈。
 
 show-busy-java-threads -c <要显示的线程栈数>
 
 show-busy-java-threads -c <要显示的线程栈数> -p <指定的Java Process>
+
+show-busy-java-threads -c <要显示的线程栈数> -p <指定的Java Process> <刷新间隔秒数> <刷新次数>
 
 ##############################
 # 注意：
