@@ -24,7 +24,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-:beer: [show-busy-java-threads](../java.bin/show-busy-java-threads)
+:beer: [show-busy-java-threads](../java/bin/show-busy-java-threads)
 ----------------------
 
 用于快速排查`Java`的`CPU`性能问题(`top us`值过高)，自动查出运行的`Java`进程中消耗`CPU`多的线程，并打印出其线程栈，从而确定导致性能问题的方法调用。
@@ -52,6 +52,16 @@ show-busy-java-threads -c <要显示的线程栈数>
 
 show-busy-java-threads -c <要显示的线程栈数> -p <指定的Java Process>
 
+# -F选项：执行jstack命令时加上-F选项（强制jstack），一般情况不需要使用
+show-busy-java-threads -p <指定的Java Process> -F
+
+show-busy-java-threads -s <指定jstack命令的全路径>
+# 对于sudo方式的运行，JAVA_HOME环境变量不能传递给root，
+# 而root用户往往没有配置JAVA_HOME且不方便配置，
+# 显式指定jstack命令的路径就反而显得更方便了
+
+show-busy-java-threads -a <输出记录到的文件>
+
 show-busy-java-threads -c <要显示的线程栈数> -p <指定的Java Process> <刷新间隔秒数> <刷新次数>
 
 ##############################
@@ -60,6 +70,12 @@ show-busy-java-threads -c <要显示的线程栈数> -p <指定的Java Process> 
 # 如果Java进程的用户 与 执行脚本的当前用户 不同，则jstack不了这个Java进程。
 # 为了能切换到Java进程的用户，需要加sudo来执行，即可以解决：
 sudo show-busy-java-threads
+
+# 帮助信息
+$ show-busy-java-threads -h
+Usage: show-busy-java-threads [OPTION]...
+Find out the highest cpu consumed threads of java, and print the stack of these threads.
+Example: show-busy-java-threads -c 10
 ```
 
 ### 示例

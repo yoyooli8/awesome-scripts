@@ -59,7 +59,7 @@ opscripts uninstall
 
 ### :coffee: [`Java`相关脚本](docs/java.md)
 
-1. [show-busy-java-threads](docs/java.md#beer-show-busy-java-threadssh)  
+1. [show-busy-java-threads](docs/java.md#beer-show-busy-java-threads)  
     
     > 用于快速排查`Java`的`CPU`性能问题(`top us`值过高)，自动查出运行的`Java`进程中消耗`CPU`多的线程，并打印出其线程栈，从而确定导致性能问题的方法调用。
 1. [show-duplicate-java-classes](docs/java.md#beer-show-duplicate-java-classes)  
