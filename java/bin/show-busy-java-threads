@@ -13,7 +13,7 @@ readonly -a COMMAND_LINE=("$0" "$@")
 
 usage() {
     local out
-    [ -n "$1" -a "$1" != 0 ] && out=/dev/stderr || out=/dev/stdou
+    [ -n "$1" -a "$1" != 0 ] && out=/dev/stderr || out=/dev/stdout
 
     > $out cat <<EOF
 Usage: ${PROG} [OPTION] [delay [ucount]]

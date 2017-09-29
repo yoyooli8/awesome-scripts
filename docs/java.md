@@ -73,9 +73,20 @@ sudo show-busy-java-threads
 
 # 帮助信息
 $ show-busy-java-threads -h
-Usage: show-busy-java-threads [OPTION]...
+Usage: show-busy-java-threads [OPTION] [delay [ucount]]
 Find out the highest cpu consumed threads of java, and print the stack of these threads.
 Example: show-busy-java-threads -c 10
+
+Options:
+    -p, --pid       find out the highest cpu consumed threads from the specifed java process,
+                    default from all java process.
+    -c, --count     set the thread count to show, default is 5
+    -h, --help      display this help and exit
+    -a, --append-file <file>  specify the file to append output as log
+    -s, --jstack-path <path>  specify the path of jstack command
+    -F, --force               set jstack to force a thread dump(use jstack -F option)
+    delay is the delay between updates in seconds.
+    ucount is the number of updates.
 ```
 
 ### 示例
