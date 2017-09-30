@@ -190,12 +190,6 @@ head_info() {
 update_count=0
 while true
 do
-    if (( "$update_limit" > 0 && "$update_count" == "$update_limit" )); then #刷新次数到达上限
-        break #
-    fi
-
-    [ "$update_count" -gt 0 ] && sleep "$update_delay" #休眠
-
     [ -n "$append_file" ] && head_info >> "$append_file"
     head_info
     
@@ -210,4 +204,9 @@ do
     fi
     
     ((update_count++))
+     if (( "$update_limit" > 0 && "$update_count" == "$update_limit" )); then #刷新次数到达上限
+        break #
+    fi
+
+    sleep "$update_delay" #休眠
 done
