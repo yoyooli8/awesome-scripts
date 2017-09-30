@@ -27,7 +27,8 @@
 :beer: [show-busy-java-threads](../java/bin/show-busy-java-threads)
 ----------------------
 
-用于快速排查`Java`的`CPU`性能问题(`top us`值过高)，自动查出运行的`Java`进程中消耗`CPU`多的线程，并打印出其线程栈，从而确定导致性能问题的方法调用。
+用于快速排查`Java`的`CPU`性能问题(`top us`值过高)，自动查出运行的`Java`进程中消耗`CPU`多的线程，并打印出其线程栈，从而确定导致性能问题的方法调用。  
+目前只支持`Linux`。原因是`Mac`、`Windows`的`ps`命令不支持列出线程，更多信息参见[#33](https://github.com/oldratlee/useful-scripts/issues/33)，欢迎提供解法。
 
 PS，如何操作可以参见[@bluedavy](http://weibo.com/bluedavy)的《分布式Java应用》的【5.1.1 cpu消耗分析】一节，说得很详细：
 
@@ -135,15 +136,16 @@ $ show-busy-java-threads
 
 ### 贡献者
 
-- [silentforce](https://github.com/silentforce)改进此脚本，增加对环境变量`JAVA_HOME`的判断。 #15
+- [silentforce](https://github.com/silentforce)改进此脚本，增加对环境变量`JAVA_HOME`的判断。 [#15](https://github.com/oldratlee/useful-scripts/pull/15)
 - [liuyangc3](https://github.com/liuyangc3)
-    - 优化性能，通过`read -a`简化反复的`awk`操作 #51
-    - 发现并解决`jstack`非当前用户`Java`进程的问题 #50
+    - 发现并解决`jstack`非当前用户`Java`进程的问题。 [#50](https://github.com/oldratlee/useful-scripts/pull/50)
+    - 优化性能，通过`read -a`简化反复的`awk`操作。 [#51](https://github.com/oldratlee/useful-scripts/pull/51)
 
 :beer: [show-duplicate-java-classes](../java/bin/show-duplicate-java-classes)
 ----------------------
 
-找出`Java Lib`（`Java`库，即`Jar`文件）或`Class`目录（类目录）中的重复类。
+找出`Java Lib`（`Java`库，即`Jar`文件）或`Class`目录（类目录）中的重复类。  
+全系统支持（`Python`实现，安装`Python`即可），如`Linux`、`Mac`、`Windows`。
 
 `Java`开发的一个麻烦的问题是`Jar`冲突（即多个版本的`Jar`），或者说重复类。会出`NoSuchMethod`等的问题，还不见得当时出问题。找出有重复类的`Jar`，可以防患未然。
 
@@ -294,24 +296,72 @@ class paths to find:
 ----------------------
 
 在当前目录下所有`jar`文件里，查找类或资源文件。
+支持`Linux`、`Mac`、`Windows`（`cygwin`、`MSSYS`）
 
 ### 用法
 
 ```bash
+# 在当前目录下所有`jar`文件里，查找类或资源文件。
 find-in-jars 'log4j\.properties'
-find-in-jars 'log4j\.xml$' -d /path/to/find/directory
-find-in-jars log4j\\.xml
-find-in-jars 'log4j\.properties|log4j\.xml'
+find-in-jars 'log4j\.xml$'
+find-in-jars log4j\\.xml$ # 和上面命令一样，Shell转义的不同写法而已
+find-in-jars 'log4j(\.properties|\.xml)$'
+
+# -d选项 指定 查找目录（覆盖缺省的当前目录）
+find-in-jars 'log4j\.properties$' -d /path/to/find/directory
+# 支持多个查找目录
+find-in-jars 'log4j\.properties' -d /path/to/find/directory1 -d /path/to/find/directory2
+
+# 帮助信息
+$ find-in-jars -h
+Usage: find-in-jars [OPTION]... PATTERN
+Find file in the jar files under specified directory(recursive, include subdirectory).
+The pattern default is *extended* regex.
+
+Example:
+    find-in-jars.sh 'log4j\.properties'
+    find-in-jars.sh '^log4j(\.properties|\.xml)$' # search file log4j.properties/log4j.xml at zip root
+    find-in-jars.sh 'log4j\.properties$' -d /path/to/find/directory
+    find-in-jars.sh 'log4j\.properties' -d /path/to/find/dir1 -d /path/to/find/dir2
+
+Options:
+  -d, --dir              the directory that find jar files, default is current directory.
+                         this option can specify multiply times to find in multiply directory.
+  -E, --extended-regexp  PATTERN is an extended regular expression (*default*)
+  -F, --fixed-strings    PATTERN is a set of newline-separated strings
+  -G, --basic-regexp     PATTERN is a basic regular expression
+  -P, --perl-regexp      PATTERN is a Perl regular expression
+  -h, --help             display this help and exit
 ```
 
-注意，后面Pattern是`grep`的 **扩展**正则表达式。
+注意，Pattern缺省是`grep`的 **扩展**正则表达式。
 
 ### 示例
 
 ```bash
+# 在当前目录下的所有Jar文件中，查找出 log4j.properties文件
+$ find-in-jars 'log4j\.properties$'
+./hadoop-core-0.20.2-cdh3u3.jar!log4j.properties
+
+# 查找出 以Service结尾的类
 $ ./find-in-jars 'Service.class$'
 ./WEB-INF/libs/spring-2.5.6.SEC03.jar!org/springframework/stereotype/Service.class
 ./rpc-benchmark-0.0.1-SNAPSHOT.jar!com/taobao/rpc/benchmark/service/HelloService.class
+......
+
+# 在指定的多个目录的Jar文件中，查找出 properties文件
+$ find-in-jars '\.properties$' -d ../WEB-INF/lib -d ../deploy/lib | grep -v '/pom\.properties$'
+../WEB-INF/lib/aspectjtools-1.6.2.jar!org/aspectj/ajdt/ajc/messages.properties
+../WEB-INF/lib/aspectjtools-1.6.2.jar!org/aspectj/ajdt/internal/compiler/parser/readableNames.properties
+../WEB-INF/lib/aspectjweaver-1.8.8.jar!org/aspectj/weaver/XlintDefault.properties
+../WEB-INF/lib/aspectjweaver-1.8.8.jar!org/aspectj/weaver/weaver-messages.properties
+../deploy/lib/groovy-all-1.1-rc-1.jar!groovy/ui/InteractiveShell.properties
+../deploy/lib/groovy-all-1.1-rc-1.jar!org/codehaus/groovy/tools/shell/CommandAlias.properties
+../deploy/lib/httpcore-4.3.3.jar!org/apache/http/version.properties
+../deploy/lib/httpmime-4.2.2.jar!org/apache/http/entity/mime/version.properties
+../deploy/lib/javax.servlet-api-3.0.1.jar!javax/servlet/LocalStrings_fr.properties
+../deploy/lib/javax.servlet-api-3.0.1.jar!javax/servlet/http/LocalStrings_es.properties
+......
 ```
 
 ### 参考资料

@@ -156,7 +156,7 @@ opscripts uninstall
 
 1. [c](docs/shell.md#beer-c)  
     
-    > 原样命令行输出，并拷贝标准输出到系统剪贴板，省去`CTRL+C`，`CTRL+V`操作。
+    > 原样命令行输出，并拷贝标准输出到系统剪贴板，省去`CTRL+C`操作，优化命令行与其它应用之间的操作流。
 1. [colines](docs/shell.md#beer-colines)  
     
     > 彩色`cat`出文件行，方便人眼区分不同的行。
@@ -177,10 +177,10 @@ opscripts uninstall
     > 统计各个`TCP`连接状态的个数。用于方便排查系统连接负荷问题。
 1. [parseOpts](docs/shell.md#beer-parseopts)   
     
-    > 提供命令行选项解析函数`parseOpts`，支持选项的值有多个值（即数组）。
+    > 命令行选项解析库，加强支持选项有多个值（即数组）。
 1. [xpl and xpf](docs/shell.md#beer-xpl-and-xpf)    
     
-    > 在文件浏览器中 打开/选中 指定的文件或文件夹。
+    > 在命令行中快速完成 在文件浏览器中 打开/选中 指定的文件或文件夹的操作，优化命令行与其它应用之间的操作流。
 1. [show-cpu-and-memory](docs/shell.md#beer-show-cpu-and-memory)    
     
     > 显示当前cpu和内存使用状况，包括全局和各个进程的。
@@ -220,15 +220,6 @@ opscripts uninstall
 
 ### :watch: [`VCS`相关脚本](docs/vcs.md)
 
-1. [swtrunk](docs/vcs.md#beer-swtrunk)  
-    
-    > 自动`svn`工作目录从分支（`branches`）切换到主干（`trunk`）。
-1. [svn-merge-stop-on-copy](docs/vcs.md#beer-svn-merge-stop-on-copy)  
-    
-    > 把指定的远程分支从刚新建分支以来的修改合并到本地`svn`目录或是另一个远程分支。
-1. [cp-svn-url](docs/vcs.md#beer-cp-svn-url)  
-    
-    > 拷贝当前`svn`目录对应的远程分支到系统的粘贴板，省去`CTRL+C`操作。
-1. [change_git_origin_remote](bin/change_git_origin_remote)  
-    
-    > 改变当前git项目的origin remote的url。
+目前`VCS`的脚本都是`svn`分支相关的操作。使用更现代的`Git`吧！ :boom:
+
+因为不推荐使用`svn`，这里不再列出有哪些脚本了，如果你有兴趣可以点上面链接去看。

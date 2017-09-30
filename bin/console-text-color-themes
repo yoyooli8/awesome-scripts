@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Function
-## show all console text color themes.
+# show all console text color themes.
 
 readonly _ctct_PROG="$(basename "$(readlink -f "$0")")"
 [ "$_ctct_PROG" == 'console-text-color-themes.sh'  ] && readonly _ctct_is_direct_run=true
