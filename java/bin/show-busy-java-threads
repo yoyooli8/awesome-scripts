@@ -28,8 +28,8 @@ Options:
     -a, --append-file <file>  specify the file to append output as log
     -s, --jstack-path <path>  specify the path of jstack command
     -F, --force               set jstack to force a thread dump(use jstack -F option)
-    delay is the delay between updates in seconds.
-    ucount is the number of updates.
+    delay is the delay between updates in seconds. when this is not set, it will output once.
+    ucount is the number of updates. when delay is set, ucount is not set, it will output in unstop mode.
 EOF
     exit $1
 }
@@ -190,6 +190,12 @@ head_info() {
 update_count=0
 while true
 do
+    if (( "$update_limit" > 0 && "$update_count" == "$update_limit" )); then #刷新次数到达上限
+        break #
+    fi
+
+    [ "$update_count" -gt 0 ] && sleep "$update_delay" #休眠
+
     [ -n "$append_file" ] && head_info >> "$append_file"
     head_info
     
@@ -198,15 +204,10 @@ do
         awk '$4=="java"{print $0}' ||
         awk -v "pid=${pid}" '$1==pid,$4=="java"{print $0}'
     } | sort -k5 -r -n | head --lines "${count}" | printStackOfThreads 
-
-    if (( $update_delay <= 0 )); then #不需要定时刷新数据
+    
+    if (( "$update_delay" <= 0 )); then #不需要定时刷新数据
         break
     fi
-
+    
     ((update_count++))
-    if (( $update_limit > 0 && $update_count == $update_limit )); then #刷新次数到达上限
-        break #
-    fi
-
-    sleep $update_delay #休眠
 done
