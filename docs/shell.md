@@ -455,6 +455,19 @@ xpf /path/to/dir1 /path/to/foo1.txt
 
 ### 用法
 
+```
+Usage: monitor-host [OPTION] [delay [count]]
+
+Example: monitor-host -l ./monitor_logs
+
+Options:
+    -l, --log-path   monitor logs output path,default is ./monitor_logs
+    -h, --help      display this help and exit
+    --stop  stop monitor processes
+    delay is the delay between updates in seconds. default is 1
+    count is the number of log outputs. deault is 10
+```
+
 建议使用crontab，定时调用此脚本
 
 :beer: [tpl/run-cmd-tpl.sh](../tpl/run-cmd-tpl.sh)
