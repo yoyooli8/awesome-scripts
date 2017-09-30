@@ -108,7 +108,7 @@ bluePrint() {
 normalPrint() {
     echo "$@"
 
-    [ -z "$append_file" ] && echo "$@" >> "$append_file"
+    [ -n "$append_file" ] && echo "$@" >> "$append_file"
 }
 
 if [ -n "$jstack_path" ]; then
