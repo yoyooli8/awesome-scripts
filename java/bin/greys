@@ -4,7 +4,7 @@
 #  author : oldmanpushcart@gmail.com
 #    date : 2015-05-04
 #    desc : write for july
-# version : 1.7.4.0
+# version : 1.7.6.4
 
 base_dir=$(dirname "$(echo "$0" | sed -e '')")
 
