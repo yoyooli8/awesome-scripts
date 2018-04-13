@@ -1,7 +1,7 @@
 awesome-scripts [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 ----
-[![GitHub stars](https://img.shields.io/github/stars/superhj1987/useful-scripts.svg?style=social&label=Star&)](https://github.com/superhj1987/useful-scripts/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/superhj1987/useful-scripts.svg?style=social&label=Fork&)](https://github.com/superhj1987/useful-scripts/fork)
+[![GitHub stars](https://img.shields.io/github/stars/superhj1987/useful-scripts.svg?style=social&label=Star&)](https://github.com/superhj1987/awesome-scripts/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/superhj1987/useful-scripts.svg?style=social&label=Fork&)](https://github.com/superhj1987/awesome-scripts/fork)
 
 本项目fork自<https://github.com/oldratlee/useful-scripts/>，现已经用于公司运维环境中，基于原项目所做更新如下:
 
@@ -65,7 +65,7 @@ opscripts uninstall
 1. [show-duplicate-java-classes](docs/java.md#beer-show-duplicate-java-classes)  
     
     > 找出`jar`文件和`class`目录中的重复类。用于排查`Java`类冲突问题。
-1. [find-in-jars](docs/java.md#beer-find-in-jarssh)  
+1. [find-in-jars](docs/java.md#beer-find-in-jars)  
     
     > 在目录下所有`jar`文件里，查找类或资源文件。
     
